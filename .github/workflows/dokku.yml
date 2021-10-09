@@ -9,4 +9,4 @@ jobs:
   list_dokku:
     runs-on: self-hosted
     steps:
-      - run: dokku apps:list
+      - run: who
