@@ -22,11 +22,12 @@ jobs:
         with:
           fetch-depth: 0
           ref: ${{ github.event.inputs.branch }}
-      
-      - run: cat src/App.js
+
+      - run: echo "commit_sha=$(git rev-parse HEAD 2>/dev/null)" >> $GITHUB_ENV
 
       - name: Dokku
         uses: dokku/github-action@v1.0.1
         with:
           git_remote_url: 'ssh://dokku@dokku.devsters.de:22/${{ github.event.inputs.name }}'
           ssh_private_key: ${{ secrets.SSHKEY }}
+          commit_ci: ${{ env.commit_sha }}
