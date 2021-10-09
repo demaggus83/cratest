@@ -29,4 +29,4 @@ jobs:
           # The dokku app's git repository url (in SSH format)
           git_remote_url: 'dokku@dokku.devsters.de/{{ github.event.inputs.name }}'
           # A private SSH key that has push acces to your Dokku instance
-          ssh_private_key: '{{ SECRETS.sshkey }}'
+          ssh_private_key: '{{ SECRETS.SSKHKEY }}'
