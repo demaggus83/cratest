@@ -1,0 +1,12 @@
+name: CI
+
+on:
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  list_dokku:
+    runs-on: self-hosted
+    steps:
+      - run: dokku apps:list
