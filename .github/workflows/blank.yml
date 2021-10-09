@@ -25,6 +25,7 @@ jobs:
       
       - run: |
           rm -rf .git
+          git lfs install
           git config --global user.email "ci@example.com"
           git config --global user.name "Github Action"
           git init
@@ -35,6 +36,5 @@ jobs:
       - name: Dokku
         uses: dokku/github-action@v1.0.1
         with:
-          branch: ${{ github.event.inputs.branch }}
           git_remote_url: 'ssh://dokku@dokku.devsters.de:22/${{ github.event.inputs.name }}'
           ssh_private_key: ${{ secrets.SSHKEY }}
