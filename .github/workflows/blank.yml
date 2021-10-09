@@ -22,7 +22,7 @@ jobs:
         with:
           fetch-depth: 0
       
-      - run: git branch
+      - run: git checkout ${{ github.event.inputs.branch }}
 
       - name: Dokku
         uses: dokku/github-action@v1.0.1
