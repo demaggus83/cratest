@@ -1,4 +1,4 @@
-name: CI
+name: Delete Approval App
 
 on:
   workflow_dispatch:
