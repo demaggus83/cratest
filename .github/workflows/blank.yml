@@ -25,8 +25,8 @@ jobs:
           
       - uses: shimataro/ssh-key-action@v2.3.1
         with:
-          # SSH private key
           key: ${{ secrets.SSHKEY }}
+          known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
       
       - run: |
           git remote add dokku dokku@dokku.devsters.de:${{ github.event.inputs.name }}
