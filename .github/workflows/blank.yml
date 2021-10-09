@@ -27,6 +27,7 @@ jobs:
       - run: git init
       - run: git add -A
       - run: git commit -m "initial commit"
+      - run: cat src/App.js
 
       - name: Dokku
         uses: dokku/github-action@v1.0.1
