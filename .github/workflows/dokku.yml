@@ -2,6 +2,10 @@ name: CI
 
 on:
   workflow_dispatch:
+    inputs:
+      name:
+        description: 'Approval App Name to Destroy'
+        required: true
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -9,4 +13,4 @@ jobs:
   list_dokku:
     runs-on: self-hosted
     steps:
-      - run: sudo dokku apps:list
+      - run: sudo dokku apps:destroy --force ${{ github.event.inputs.branch }}
