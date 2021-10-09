@@ -23,11 +23,13 @@ jobs:
         with:
           fetch-depth: 0
       
-      - name: Dokku
-        uses: dokku/github-action@v1.0.1
-        with:
-          branch: ${{ github.event.inputs.branch }}
-          ci_branch_name: ${{ github.event.inputs.branch }}
-          git_remote_url: 'ssh://dokku@dokku.devsters.de:22/${{ github.event.inputs.name }}'
-          ssh_private_key: ${{ secrets.SSHKEY }}
-          git_push_flags: --force
+      - run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSHKEY }}" > ~/.ssh/id_rsa
+          echo "${{ secrets.SSHPUBKEY }}" > ~/.ssh/id_rsa.pub
+          chmod 600 ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa.pub
+      
+      - run: |
+          git remote add dokku dokku@dokku.devsters.de:${{ github.event.inputs.name }}
+          git push dokku ${{ github.event.inputs.branch }}:master
