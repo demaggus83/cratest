@@ -1,0 +1,32 @@
+name: Deploy
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to deploy'
+        required: true
+        default: 'master'
+      name:
+        description: 'name to deploy'
+        required: true
+        default: 'master'
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+      
+      - name: Dokku
+        uses: dokku/github-action@v1.0.1
+        with:
+          # The branch to deploy when pushing to Dokku (default: master)
+          branch: '{{ github.event.inputs.branch }}'
+          # The dokku app's git repository url (in SSH format)
+          git_remote_url: 'dokku@dokku.devsters.de/{{ github.event.inputs.name }}'
+          # A private SSH key that has push acces to your Dokku instance
+          ssh_private_key: '{{ SECRETS.sshkey }}'
