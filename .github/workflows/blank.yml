@@ -30,4 +30,4 @@ jobs:
         with:
           git_remote_url: 'ssh://dokku@dokku.devsters.de:22/${{ github.event.inputs.name }}'
           ssh_private_key: ${{ secrets.SSHKEY }}
-          commit_ci: ${{ env.commit_sha }}
+          ci_commit: ${{ env.commit_sha }}
