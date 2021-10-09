@@ -32,4 +32,5 @@ jobs:
       
       - run: |
           git remote add dokku dokku@dokku.devsters.de:${{ github.event.inputs.name }}
-          git push dokku ${{ github.event.inputs.branch }}:master
+          git checkout ${{ github.event.inputs.branch }}
+          git push dokku HEAD:master
