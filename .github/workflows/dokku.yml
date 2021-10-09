@@ -3,7 +3,7 @@ name: CI
 on:
   workflow_dispatch:
     inputs:
-      name:
+      appname:
         description: 'Approval App Name to Destroy'
         required: true
 
@@ -13,4 +13,4 @@ jobs:
   list_dokku:
     runs-on: self-hosted
     steps:
-      - run: sudo dokku apps:destroy --force ${{ github.event.inputs.branch }}
+      - run: sudo dokku apps:destroy --force ${{ github.event.inputs.appname }}
