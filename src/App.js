@@ -15,7 +15,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-        Hello my friend
+        Hello my friend - BSH 123
         </a>
       </header>
     </div>
