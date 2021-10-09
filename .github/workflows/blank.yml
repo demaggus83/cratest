@@ -30,3 +30,4 @@ jobs:
           git_remote_url: 'ssh://dokku@dokku.devsters.de:22/${{ github.event.inputs.name }}'
           # A private SSH key that has push acces to your Dokku instance
           ssh_private_key: ${{ secrets.SSHKEY }}
+          git_push_flags: --force
