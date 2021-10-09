@@ -25,8 +25,8 @@ jobs:
         uses: dokku/github-action@v1.0.1
         with:
           # The branch to deploy when pushing to Dokku (default: master)
-          branch: '{{ github.event.inputs.branch }}'
+          branch: ${{ github.event.inputs.branch }}
           # The dokku app's git repository url (in SSH format)
-          git_remote_url: 'dokku@dokku.devsters.de/{{ github.event.inputs.name }}'
+          git_remote_url: 'dokku@dokku.devsters.de/${{ github.event.inputs.name }}'
           # A private SSH key that has push acces to your Dokku instance
-          ssh_private_key: '{{ SECRETS.SSKHKEY }}'
+          ssh_private_key: ${{ secrets.SSKHKEY }}
