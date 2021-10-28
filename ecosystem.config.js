@@ -19,7 +19,7 @@ module.exports = {
       // pre-deploy action
       // 'pre-deploy-local': "echo 'This is a local executed command'",
       // post-deploy action
-      'post-deploy': "pm2 startOrRestart ecosystem.config.json",
+      'post-deploy': "pm2 startOrRestart ecosystem.config.json --env approval",
     },
   }
 }
