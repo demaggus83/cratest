@@ -11,8 +11,8 @@ module.exports = {
       ref: "origin/master",
       repo: "git@github.com:domvo/cratest.git",
       path: "/home/dome/cratest",
-      // 'post-setup': "pwd",
-      'post-deploy': "touch ./hello.txt",
+      'post-setup': "npm install && npm run build && pm2 startOrRestart ecosystem.config.json",
+      'post-deploy': "npm install && npm run build && pm2 startOrRestart ecosystem.config.json",
     },
   }
 }
