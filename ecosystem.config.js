@@ -15,11 +15,11 @@ module.exports = {
       // 'pre-setup': "source ~/.nvm/nvm.sh",
       // Post-setup commands or path to a script on the host machine
       // eg: placing configurations in the shared dir etc
-      'post-setup': "npm install && npm run build",
+      'post-setup': "npm install && npm run build && pm2 startOrRestart ecosystem.config.json",
       // pre-deploy action
       // 'pre-deploy-local': "echo 'This is a local executed command'",
       // post-deploy action
-      'post-deploy': "pm2 startOrRestart ecosystem.config.json --env approval",
+      // 'post-deploy': "pm2 startOrRestart ecosystem.config.json --env approval",
     },
   }
 }
