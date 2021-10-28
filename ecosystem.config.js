@@ -20,7 +20,7 @@ module.exports = {
       // pre-deploy action
       // 'pre-deploy-local': "echo 'This is a local executed command'",
       // post-deploy action
-      'post-deploy': "pwd && ls -la",
+      'post-deploy': "touch ./hello.txt",
     },
   }
 }
